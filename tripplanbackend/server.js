@@ -7,11 +7,14 @@ const sendMailRoute = require('./sendMailRoute');
 // Load environment variables
 dotenv.config();
 
-// Initialize Firebase Admin SDK
-const serviceAccount = require("./service-account.json");
+const serviceAccount = JSON.parse(
+  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_BASE64, "base64").toString("utf8")
+);
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

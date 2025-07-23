@@ -27,7 +27,8 @@ router.post('/send-booking-email', async (req, res) => {
       },
     });
     const mailOptions = {
-      from: '"Trip Booking System" <tripplan25@gmail.com>',
+     from: `"Trip Booking System" <${process.env.EMAIL_USER}>`,
+
       to: [email],
       subject: '📩 New Trip Booking Received!',
       html: `
