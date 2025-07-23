@@ -1,0 +1,19 @@
+/*
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    }
+}
+*/
+
+{
+    "compilerOptions": {
+      "types": ["react-google-places-autocomplete"],
+      "strict": true
+    }
+  }

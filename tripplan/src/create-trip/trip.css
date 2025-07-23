@@ -1,0 +1,190 @@
+
+
+ body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  /* Background container */
+  .bg {
+    background: url('https://i.pinimg.com/736x/89/cd/a5/89cda586e2d81c08ec5e4e0395cf76c8.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+  }
+  /* Location container */
+  .location {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+  }
+  /* Slideshow container inside location */
+  .slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  } 
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 4s ease-in-out;
+    filter: blur(2px) brightness(1.2);
+    z-index: 0;
+    opacity: 0;
+  } 
+  .slide.active {
+    opacity: 1;
+  } 
+  .slideshow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    z-index: 1;
+  } 
+  .location > *:not(.slideshow) {
+    position: relative;
+    z-index: 2;
+  } 
+  /* Headings */
+  .heading-pref {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 20px;
+  } 
+  .subheading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #a51313;
+    margin-bottom: 30px;
+    font-style: italic;
+  } 
+  /* Section spacing */
+  .section,
+  .gap2,
+  .gap3 {
+    margin-bottom: 30px;
+  } 
+  /* Headings for each section */
+  .destination,
+  .days,
+  .budget,
+  .planof {
+    color: #591c1c;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+  } 
+  /* Input Fields */
+  input[type="text"],
+  input[type="number"] {
+    width: 50%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #4a90e2;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  } 
+  input:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    outline: none;
+  } 
+  /* Suggestions Dropdown */
+  .suggestions-container {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: -10px;
+    padding: 5px;
+  } 
+  .suggestions-container div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  } 
+  .suggestions-container div:hover {
+    background: #f1f1f1;
+  } 
+  /* Budget & Traveler Selection */
+  .boxes1,
+  .gap3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  } 
+  .boxes1 div,
+  .gap3 div {
+    background: white;
+    border: 2px solid #4a90e2;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  .boxes1 div:hover,
+  .gap3 div:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  .boxes1 .shadow-lg,
+  .gap3 .shadow-lg {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+  }
+  /* Generate Trip Button */
+  .gentrip {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .gentrip button {
+    background-color: #ff6b6b;
+    color: white;
+    font-size: 1.2rem;
+    padding: 14px 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .gentrip button:hover {
+    background-color: #d94a4a;
+    transform: scale(1.05);
+  }
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+  }
+  

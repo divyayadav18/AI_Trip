@@ -1,0 +1,70 @@
+/*InfoSection */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Image styling */
+.info-section img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+/* Hover effect for the image */
+.info-section img:hover {
+    transform: scale(1.05);
+}
+/* Header styling for location */
+.info-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 2px;
+    font-weight: 500;
+}
+.info-section button{
+    margin: 10px;
+    padding:10px;
+    padding-bottom: 18px;
+    height: 10px;
+}
+/* Styling for the trip info */
+.trip-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+/* Each piece of trip information styling */
+.trip-info h2 {
+    font-size: 1.1rem;
+    color: #555;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .info-section {
+        padding: 10px;
+    }
+    .trip-info {
+        flex-direction: column;
+    }
+    .trip-info h2 {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,38 @@
+.trip-countdown-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .trip-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .trip-time-left {
+    font-size: 1.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .trip-tip-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .trip-tip {
+    font-size: 1rem;
+    font-style: italic;
+    color: #fff5cc;
+  }
+  

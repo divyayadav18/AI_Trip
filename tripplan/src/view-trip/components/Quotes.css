@@ -1,0 +1,112 @@
+/* Wrapper for the entire section */
+.quotes-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ecc299, #ffffff);
+    padding: 3rem 1.5rem;
+  }
+  
+  /* 3D Effect on the Outer Box (Neumorphism) */
+  .quotes-container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    background: #f0f0f3;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1), 
+                -10px -10px 30px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Add a lifting effect on hover */
+  .quotes-container:hover {
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.15), 
+                -15px -15px 35px rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+  }
+  
+  /* Title Styling */
+  .quotes-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Grid layout for quotes */
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Quote Card Styling (Neumorphism) */
+  .quote-card {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    padding: 1.8rem;
+    border-radius: 16px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), 
+                -5px -5px 15px rgba(255, 255, 255, 0.6);
+    position: relative;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* Hover Effects */
+  .quote-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), 
+                -10px -10px 20px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Subtle glowing effect on hover */
+  .quote-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(147, 197, 253, 0.2), rgba(255, 175, 189, 0.2));
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .quote-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* Quote Text Styling */
+  .quote-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #444;
+    transition: color 0.3s ease;
+  }
+  
+  /* Quote Author */
+  .quote-author {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    text-align: right;
+    color: #777;
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .quotes-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .quote-text {
+      font-size: 1.2rem;
+    }
+  
+    .quotes-title {
+      font-size: 1.8rem;
+    }
+  }
+  

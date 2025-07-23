@@ -1,0 +1,81 @@
+/* Background Image for Full Page */
+.availability-page {
+    background: url('https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?cs=srgb&dl=pexels-amar-saleem-15661-70441.jpg&fm=jpg') no-repeat center center/cover;
+    height: 100vh; /* Full page height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.availability-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    width: 350px;
+}
+/*Header Style*/
+.availability-container h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+/*Labels*/
+.availability-container label {
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+/*Input Fields */
+.availability-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f0f0f0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+.check-btn {
+    background: linear-gradient(145deg, #528dcc, #4178b5);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3), -2px -2px 8px rgba(255, 255, 255, 0.3);
+}
+.check-btn:hover {
+    background: linear-gradient(145deg, #4178b5, #3060a0);
+    transform: scale(1.05);
+}
+.availability-container p {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+}
+.book-now-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .book-now-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }

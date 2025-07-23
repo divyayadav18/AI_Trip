@@ -1,0 +1,54 @@
+.places-container {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg,  #ffffff,#ecc299);
+  }
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  /* Scrollable container */
+  .places-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+  }
+  /* Hide scrollbar */
+  .places-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  .place-card {
+    min-width: 300px;
+    max-width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: perspective(1000px) translateZ(0);
+  }
+  .place-card:hover {
+    transform: translateY(-10px) scale(1.03) rotateX(3deg) rotateY(3deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  } 
+  /* Image inside the card */
+  .place-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  /* Details inside the card */
+  .place-details {
+    padding-top: 10px;
+  }
+  .place-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
