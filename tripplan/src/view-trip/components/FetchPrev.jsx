@@ -43,7 +43,7 @@ const FetchPrevious = ({ userEmail }) => {
           setPreviousBookings((prev) =>
             prev.filter((booking) => booking.id !== selectedBooking.id)
           );
-           const response = await fetch("http://localhost:5000/api/send-cancellation-email", {
+           const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/send-cancellation-email`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -105,7 +105,7 @@ if (pricePerNight && typeof pricePerNight === "string") {
       console.log("Pay on prop.Booking confirmed successfully in Firebase.");
       console.log("Sending booking details:", bookingDetails);
 
-      await fetch('http://localhost:5000/api/send-booking-email', {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/send-booking-email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

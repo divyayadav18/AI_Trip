@@ -12,12 +12,12 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
     if(isPaymentProcessing) return;
     setIsPaymentProcessing(true);
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_TEST_KEY_ID, // Replace with your Razorpay Key
+      key: import.meta.env.VITE_RAZORPAY_TEST_KEY_ID, 
      amount: Number(bookingDetails.price) * 100,
       currency: 'INR',
       name: 'Hotel Payment',
       description: `Payment for ₹${bookingDetails.hotelName}`,
-      image: 'https://your-logo-url.com/logo.png', // Optional
+      image: 'https://your-logo-url.com/logo.png', 
       handler: async (response) => {
         console.log('Payment Successful:', response);
         await savePayment(response.razorpay_payment_id, bookingDetails.price);
@@ -63,7 +63,7 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
           checkOut: bookingDetails.checkOut,
         },     
       });
-      await fetch('http://localhost:5000/api/send-booking-email', {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/send-booking-email`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
