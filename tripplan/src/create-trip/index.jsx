@@ -21,6 +21,8 @@ function CreateTrip({isLoggedIn,setIsLoggedIn,setUser}){
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Please sign in to generate your trip");
+  const [isLoading, setIsLoading] = useState(false);
+
   const RAPID_API_KEY = import.meta.env.VITE_LOCATION_KEY;
   const navigate = useNavigate();
   const backgroundImages = [
@@ -130,7 +132,8 @@ const handleLoginSuccess = (response) => {
       setShowModal(true);
       return;
     }
-  try{
+    try {
+    setIsLoading(true); // START loading
     const FINAL_PROMPT = AI_PROMPT
       .replace('{location}', formData.location)
       .replace('{totalDays}', formData.noOfDays)
@@ -144,7 +147,9 @@ const handleLoginSuccess = (response) => {
       }
     } catch (error) {
       console.error("Error generating trip:", error);
-    }
+    } finally {
+    setIsLoading(false); // STOP loading
+  }
   };
   const SaveAiTrip = async (TripData) => {
     try {  
@@ -256,7 +261,13 @@ const handleLoginSuccess = (response) => {
               </div>
             </div>
             <div className="gentrip">
+            {isLoading ? (
+                <div className="loading-spinner"></div>
+                 ) : (
+    
+  
               <button onClick={handleGenerateTrip}>Generate Trip</button>
+                 )}
             </div>
           </>
         )}

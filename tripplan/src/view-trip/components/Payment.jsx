@@ -6,6 +6,8 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
   const [showCountdown, setShowCountdown] = useState(false);
+  const [isEmailSending, setIsEmailSending] = useState(false);
+
   const sanitizedEmail = userEmail.replace(/[@.]/g, "_"); // Convert to valid Firestore collection name
 
   const handlePayment = async () => {
@@ -63,6 +65,7 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
           checkOut: bookingDetails.checkOut,
         },     
       });
+      setIsEmailSending(true); // Start showing message
       await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/send-booking-email`, {
                 method: 'POST',
                 headers: {
@@ -83,8 +86,8 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
                 }),
               })
                 .then((res) => res.json())
-                .then((data) => console.log('📩 Email Sent Result:', data))
-                .catch((err) => console.error('❌ Error Sending Email:', err));
+                .then((data) => {console.log('📩 Email Sent Result:', data); setIsEmailSending(false);})
+                .catch((err) => {console.error('❌ Error Sending Email:', err); setIsEmailSending(false);});
     } catch (error) {
       console.error('❌ Error saving payment:', error.message, error.code);
       alert(`Failed to save payment: ${error.message}`);
@@ -101,6 +104,11 @@ const Payment = ({ bookingDetails,userEmail,setModalOpen }) => {
         </button></>
       ):(
         <>
+        {isEmailSending && (
+        <p className="sending-email-message">
+          📤 Sending booking details to your email...
+        </p>
+      )}
          <p className="success-message">
         ✅ Payment of ₹{bookingDetails.price} was successful!
       </p>

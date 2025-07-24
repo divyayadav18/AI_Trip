@@ -11,6 +11,8 @@ const HotelDetail = ({  hotel = {} ,user,isLoggedIn}) => {
   const location = useLocation();
   const {checkIn,checkOut,hotelName,pricePerNight,hotelAdd}=location.state || {};
   const[userEmail,setUserEmail]=useState("");
+  const [isEmailSending, setIsEmailSending] = useState(false);
+
   let minPrice = 0, maxPrice = 0;
 if (pricePerNight && typeof pricePerNight === "string") {
   const priceMatches = pricePerNight.match(/₹?([\d,]+)/g);
@@ -102,6 +104,7 @@ if (pricePerNight && typeof pricePerNight === "string") {
         paymentMode: "On Property",
         timestamp: new Date(),
       });
+       setIsEmailSending(true);
       console.log("Pay on prop.Booking confirmed successfully in Firebase.");
       console.log("Sending booking details:", bookingDetails);
 
@@ -124,9 +127,9 @@ if (pricePerNight && typeof pricePerNight === "string") {
         }),
       })
         .then((res) => res.json())
-        .then((data) => console.log('📩 Email Sent Result:', data))
-        .catch((err) => console.error('❌ Error Sending Email:', err));
-      setShowThankYou(true);
+        .then((data) => {console.log('📩 Email Sent Result:', data); setIsEmailSending(false); setShowThankYou(true); } )
+        .catch((err) => {console.error('❌ Error Sending Email:', err); setIsEmailSending(false);});
+     
     } catch (error) {
       console.error("Error confirming booking:", error);
       alert("Failed to confirm booking. Please try again.");
@@ -194,8 +197,12 @@ if (pricePerNight && typeof pricePerNight === "string") {
       <button onClick={handleBooking} className="booking-button">Confirm Booking</button>  </div>
     {modalOpen && (
         <div className="modal-overlay">
-      <div className="modal-content">   
-       { showThankYou ? (
+      <div className="modal-content"> 
+        {isEmailSending ? (
+  <p className="sending-email-message">
+    📤 Sending booking details to your email...
+  </p>
+) : showThankYou ? (
           <>
             <h2>Enjoy Your Day!</h2>
             <p>We will proceed with your trip further and send your confirmed booking to your phone number.</p>
