@@ -9,7 +9,9 @@ import { db } from '../service/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import './trip.css';
-import './Header.css';
+import '../components/Header.css';
+
+
 
 function CreateTrip({isLoggedIn,setIsLoggedIn,setUser}){
   useEffect(() => {
