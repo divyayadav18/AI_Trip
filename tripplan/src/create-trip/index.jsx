@@ -9,7 +9,7 @@ import { db } from '../service/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import './trip.css';
-import '.../components\custom/Header.css';
+
 
 
 
