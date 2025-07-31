@@ -14,7 +14,6 @@ import '../components/custom/Header.css';
 
 
 
-
 function CreateTrip({isLoggedIn,setIsLoggedIn,setUser}){
   useEffect(() => {
     if (typeof setUser !== 'function') {
