@@ -19,7 +19,7 @@ function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
   };
   return (
     <div className="header">
-      <img src="/travelling.jpg" alt="Logo" className="logo" />
+      <img src="" alt="Logo" className="logo" />
       <div className="title-container">
       <h1 className="titles">TRAVEL AGENCY</h1>
       <span className="slogan">Plan. Travel. Explore.</span>
