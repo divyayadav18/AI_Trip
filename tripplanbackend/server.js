@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const sendMailRoute = require('./sendMailRoute');
 // Load environment variables
-dotenv.config();
+dotenv.config({ path: '.env.local' });
+
 
 const serviceAccount = JSON.parse(
   Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_BASE64, 'base64').toString('utf8')
