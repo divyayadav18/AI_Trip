@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Front.css';
+import './components/custom/Front.css';
+
 import { destinations } from './DestOpt';
 import WeatherWidget from './weather';
 import Footer from './Footer';

@@ -1,8 +1,9 @@
 {/*Header jsx*/}
 import React, { useState, useEffect } from "react";
-import "./Header.css"
+import './components/custom/Header.css';
 import SignIn from "./SignIn";
 import ChatBot from "./chatbot";
+
 
 function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
   const [showDropdown, setShowDropdown] = useState(false);

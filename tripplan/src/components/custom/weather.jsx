@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Weather.css";
+import './components/custom/Weather.css';
 import { WiThermometer, WiHumidity, WiStrongWind, WiDaySunny } from "react-icons/wi";
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY; 
 
