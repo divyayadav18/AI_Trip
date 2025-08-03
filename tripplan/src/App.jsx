@@ -9,6 +9,11 @@ import Hero from "./components/custom/Hero";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth } from "./service/firebaseConfig";
 import Payment from "./view-trip/components/Payment";
+import './components/custom/Front.css';
+import './components/custom/Header.css';
+import './components/custom/Weather.css';
+import './components/custom/chatbot.css';
+
 function App() {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
