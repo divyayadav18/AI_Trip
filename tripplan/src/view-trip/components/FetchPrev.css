@@ -15,6 +15,7 @@
     scroll-behavior: smooth; /*scrolling */
     white-space: nowrap;
     -ms-overflow-style: none;
+  }
   /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
   .scroll-container::-webkit-scrollbar {
     display: none;
