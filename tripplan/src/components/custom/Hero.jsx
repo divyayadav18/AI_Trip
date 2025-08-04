@@ -1,4 +1,5 @@
 {/*First page of website*/}
+{/*front view*/}
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
