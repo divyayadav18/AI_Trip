@@ -1,6 +1,6 @@
 // ChatBot.jsx
 import React, { useState } from 'react';
-import './components/custom/chatbot.css';
+import './chatbot.css';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const apiKey = import.meta.env.VITE_GOOGLE_GEMINI_API_KEY;
