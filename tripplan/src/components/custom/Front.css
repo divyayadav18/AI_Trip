@@ -1,7 +1,9 @@
 
 
 
-
+body{
+  background-color: #892222;
+}
 /* Container for the background video */
 .trip-container {
   display: flex;
