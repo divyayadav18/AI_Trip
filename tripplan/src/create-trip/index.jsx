@@ -163,6 +163,12 @@ const handleLoginSuccess = (response) => {
         tripData: JSON.parse(TripData),
         id: docId
       });
+       setFormData({
+      location: "",
+      noOfDays: "",
+      budget: "",
+      traveler: ""
+    });
       navigate(`/view-trip/${docId}`);
     } catch (error) {
       console.error("Error saving trip:", error);
