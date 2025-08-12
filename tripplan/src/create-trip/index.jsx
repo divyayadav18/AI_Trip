@@ -215,7 +215,7 @@ const handleLoginSuccess = (response) => {
                 onBlur={() => setTimeout(() => setIsInputFocused(false), 200)}
                 placeholder="Search for an Indian city"
                 disabled={isLoading}
-                autoComplete='off'
+                autoComplete="new-password"
               />
               {suggestions.length > 0 && isInputFocused && (
                 <div className="suggestions-container">
@@ -240,7 +240,7 @@ const handleLoginSuccess = (response) => {
                 onChange={(e) => handleInputChange("noOfDays", e.target.value)}
                 placeholder="Type days..."
                 disabled={isLoading}
-                autoComplete='off'
+                autoComplete="new-password"
               />
             </div>
             <div>
