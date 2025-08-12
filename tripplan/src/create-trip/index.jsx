@@ -215,13 +215,14 @@ const handleLoginSuccess = (response) => {
                 onBlur={() => setTimeout(() => setIsInputFocused(false), 200)}
                 placeholder="Search for an Indian city"
                 disabled={isLoading}
+                autoComplete='off'
               />
               {suggestions.length > 0 && isInputFocused && (
                 <div className="suggestions-container">
                   {suggestions.map((suggestion, index) => (
                     <div 
                       key={index} 
-                      onMouseDown={() =>{(!isLoading){ handleSuggestionClick(suggestion)}  }}
+                      onMouseDown={() =>!isLoading && handleSuggestionClick(suggestion)}  
                       className="suggestion-item"
                     >
                       {suggestion.structured_formatting.main_text}, {suggestion.structured_formatting.secondary_text}
@@ -239,6 +240,7 @@ const handleLoginSuccess = (response) => {
                 onChange={(e) => handleInputChange("noOfDays", e.target.value)}
                 placeholder="Type days..."
                 disabled={isLoading}
+                autoComplete='off'
               />
             </div>
             <div>
@@ -247,7 +249,7 @@ const handleLoginSuccess = (response) => {
                 {SelectBudgetOptions.map((item, index) => (
                   <div
                     key={index}
-                    onClick={() => {(!isLoading){handleInputChange("budget", item.title)}}}
+                    onClick={() => !isLoading && handleInputChange("budget", item.title)}
                     className={`p-4 border rounded-lg hover:shadow-lg ${formData.budget === item.title && "shadow-lg border-black"}`}
                   >
                     <h2 className="icon">{item.icon}</h2>
@@ -264,7 +266,7 @@ const handleLoginSuccess = (response) => {
                 {SelectTravelesList.map((item, index) => (
                   <div
                     key={index}
-                    onClick={() => {(!isLoading){handleInputChange("traveler", item.people)}}}
+                    onClick={() => !isLoading && handleInputChange("traveler", item.people)}
                     className={`p-4 border rounded-lg hover:shadow-lg ${formData.traveler === item.people && "shadow-lg border-black"}`}>
                     <h2 className="icon">{item.icon}</h2>
                     <h2 className="title">{item.title}</h2>
