@@ -6,6 +6,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   /* Background container */
+  .form-disabled {
+  pointer-events: none; 
+  opacity: 0.6;        
+}
+
   .bg {
     background: url('https://i.pinimg.com/736x/89/cd/a5/89cda586e2d81c08ec5e4e0395cf76c8.jpg') no-repeat center center fixed;
     background-size: cover;

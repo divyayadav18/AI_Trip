@@ -175,7 +175,7 @@ const handleLoginSuccess = (response) => {
     }
   };
   return (
-    <div className="bg">
+    <div className={`bg ${isLoading ? "form-disabled" : ""}`}>
       <div className="location">
         <div className="slideshow">
           {backgroundImages.map((img,index)=>(
@@ -281,7 +281,7 @@ const handleLoginSuccess = (response) => {
                  ) : (
     
   
-              <button onClick={handleGenerateTrip}>Generate Trip</button>
+              <button onClick={handleGenerateTrip} disabled={isLoading}>Generate Trip</button>
                  )}
             </div>
           </>
