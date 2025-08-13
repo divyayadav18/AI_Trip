@@ -11,8 +11,8 @@ function SignIn({ setUser,setIsLoggedIn }) {
       picture: decodedUser.picture || null, 
     };
   
-    localStorage.setItem("user", JSON.stringify(userData)); 
-    localStorage.setItem("isLoggedIn", "true"); 
+    sessionStorage.setItem("user", JSON.stringify(userData)); 
+    sessionStorage.setItem("isLoggedIn", "true"); 
     setUser(userData);
     setIsLoggedIn(true);
   };

@@ -7,12 +7,24 @@ import ChatBot from "./chatbot";
 
 function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
   const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    const savedUser = sessionStorage.getItem("user");
+    const savedLoginStatus = sessionStorage.getItem("isLoggedIn");
+
+    if (savedUser && savedLoginStatus === "true") {
+      setUser(JSON.parse(savedUser));
+      setIsLoggedIn(true);
+    }
+  }, [setUser, setIsLoggedIn]);
+
+
   const handleLogin = (userData) => {
     setUser(userData);  // user email is passed
     setIsLoggedIn(true);
   };
   const handleLogout = () => {
-    localStorage.removeItem("user");   //This will remove user data
+    sessionStorage.removeItem("user");   //This will remove user data
     setIsLoggedIn(false);  // Set login status to false
     setUser(null);
     setShowDropdown(false);
