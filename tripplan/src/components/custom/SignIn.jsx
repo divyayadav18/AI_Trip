@@ -4,13 +4,16 @@ import {jwtDecode} from "jwt-decode";
 
 function SignIn({ setUser,setIsLoggedIn }) {
   const handleLoginSuccess = (response) => {
+     console.log("Google login success response:", response);
     const decodedUser = jwtDecode(response.credential);
+    console.log("Decoded user data:", decodedUser);
+
     const userData = {
       name: decodedUser.name,
       email: decodedUser.email,
       picture: decodedUser.picture || null, 
     };
-  
+    console.log("Storing user data in sessionStorage:", userData);
     sessionStorage.setItem("user", JSON.stringify(userData)); 
     sessionStorage.setItem("isLoggedIn", "true"); 
     setUser(userData);

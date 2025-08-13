@@ -9,10 +9,12 @@ function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
+    console.log("Checking sessionStorage for user session...");
     const savedUser = sessionStorage.getItem("user");
     const savedLoginStatus = sessionStorage.getItem("isLoggedIn");
 
     if (savedUser && savedLoginStatus === "true") {
+       console.log("Restoring user session...");
       setUser(JSON.parse(savedUser));
       setIsLoggedIn(true);
     }
