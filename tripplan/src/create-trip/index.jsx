@@ -208,7 +208,7 @@ const handleLoginSuccess = (response) => {
               <h2 className="destination">Where is your destination?</h2>
               <input
                 type="text"
-                name="location"
+                name="location_x"
                 value={formData.location}
                 onChange={(e) => handleInputChange("location", e.target.value)}
                 onFocus={() => setIsInputFocused(true)}
@@ -235,7 +235,7 @@ const handleLoginSuccess = (response) => {
               <h2 className="days">How many days are you staying?</h2>
               <input
                 type="text"
-                name="noOfDays"
+                name="noOfDays_x"
                 value={formData.noOfDays}
                 onChange={(e) => handleInputChange("noOfDays", e.target.value)}
                 placeholder="Type days..."
