@@ -39,7 +39,7 @@ function App() {
     return () => unsubscribe();
   }, []);
   return (
-    <AuthContext.Provider values={{user,isLoggedIn,setUser,setIsLoggedIn}}>
+    <AuthContext.Provider value={{user,isLoggedIn,setUser,setIsLoggedIn}}>
     <Router>
     {/*  <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} />*/}
     <Header/>
