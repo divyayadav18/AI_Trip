@@ -3,15 +3,18 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import SignIn from "./SignIn";
 import ChatBot from "./chatbot";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
 
 
-function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
+function Header(){
+  const {user,isLoggedIn,setUser,setIsLoggedIn}=useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     console.log("Checking sessionStorage for user session...");
-    const savedUser = sessionStorage.getItem("user");
-    const savedLoginStatus = sessionStorage.getItem("isLoggedIn");
+    const savedUser = localStorage.getItem("user");
+    const savedLoginStatus = localStorage.getItem("isLoggedIn");
 
     if (savedUser && savedLoginStatus === "true") {
        console.log("Restoring user session...");
@@ -25,12 +28,14 @@ function Header({ isLoggedIn,setIsLoggedIn,setUser,user}){
     setUser(userData);  // user email is passed
     setIsLoggedIn(true);
   };
+  const navigate = useNavigate();
   const handleLogout = () => {
-    sessionStorage.removeItem("user");   //This will remove user data
-    setIsLoggedIn(false);  // Set login status to false
-    setUser(null);
-    setShowDropdown(false);
-    window.location.reload(false);  
+   localStorage.removeItem("user");  
+  // Update React state
+  setIsLoggedIn(false);
+  setUser(null);
+  setShowDropdown(false);
+  navigate("/"); 
   };
   return (
     <div className="header">

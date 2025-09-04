@@ -13,21 +13,36 @@ import './components/custom/Front.css';
 import './components/custom/Header.css';
 import './components/custom/Weather.css';
 import './components/custom/chatbot.css';
+import { AuthContext } from "./AuthContext";
 
 function App() {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+      const userData = {
+        name: currentUser.displayName,
+        email: currentUser.email,
+        picture: currentUser.photoURL || null,
+      };
       console.log("Auth State Changed:", currentUser);
       setUser(currentUser);
       setIsLoggedIn(!!currentUser);
-    })
+      localStorage.setItem("user", JSON.stringify(userData));
+    } else {
+      setUser(null);
+      setIsLoggedIn(false);
+      localStorage.removeItem("user");
+    }
+    });
     return () => unsubscribe();
   }, []);
   return (
+    <AuthContext.Provider values={{user,isLoggedIn,setUser,setIsLoggedIn}}>
     <Router>
-      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} />
+    {/*  <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} />*/}
+    <Header/>
       <Routes><Route path="/" element={<Hero />} />
         <Route path="/create-trip" element={<CreateTrip isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser} />} />
         <Route path="/book-hotel/:hotelId" element={<HotelDetail isLoggedIn={isLoggedIn} user={user} />} />
@@ -35,6 +50,7 @@ function App() {
         <Route path="/check-availability/:hotelId" element={<CheckAvailability isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>} />
         <Route path="/Payment" element={<Payment isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>} /> </Routes>
     </Router>
+    </AuthContext.Provider>
   );
 }
 export default App;

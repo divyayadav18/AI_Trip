@@ -2,6 +2,7 @@ import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import {jwtDecode} from "jwt-decode";
 
+
 function SignIn({ setUser,setIsLoggedIn }) {
   const handleLoginSuccess = (response) => {
      console.log("Google login success response:", response);
@@ -14,8 +15,8 @@ function SignIn({ setUser,setIsLoggedIn }) {
       picture: decodedUser.picture || null, 
     };
     console.log("Storing user data in sessionStorage:", userData);
-    sessionStorage.setItem("user", JSON.stringify(userData)); 
-    sessionStorage.setItem("isLoggedIn", "true"); 
+    localStorage.setItem("user", JSON.stringify(userData)); 
+    localStorage.setItem("isLoggedIn", "true"); 
     setUser(userData);
     setIsLoggedIn(true);
   };
